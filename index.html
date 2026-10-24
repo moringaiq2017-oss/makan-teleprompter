@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ar">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="application-name" content="Makan Prompter">
+<title>Makan Prompter</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app" class="app-shell">
+
+  <!-- Library: pick a script -->
+  <section id="screen-list" class="screen">
+    <header class="bar"><h1>Makan Prompter</h1></header>
+    <div class="content scroll" id="list"></div>
+    <footer class="bar">
+      <button type="button" id="btn-new">+ نص جديد</button>
+    </footer>
+  </section>
+
+  <!-- New script via the glasses composer (dictation / handwriting) -->
+  <section id="screen-new" class="screen" hidden>
+    <header class="bar"><h1>نص جديد</h1></header>
+    <div class="content form">
+      <label for="new-title">العنوان</label>
+      <input id="new-title" type="text" placeholder="اكتب أو احكي العنوان">
+      <label for="new-body">النص</label>
+      <textarea id="new-body" placeholder="اكتب أو احكي النص"></textarea>
+    </div>
+    <footer class="bar">
+      <button type="button" id="btn-save">حفظ</button>
+    </footer>
+  </section>
+
+  <!-- Prompter -->
+  <section id="screen-play" class="screen" hidden>
+    <div class="content prompter" id="viewport">
+      <div id="text" dir="auto"></div>
+    </div>
+    <footer class="bar controls">
+      <button type="button" id="btn-slower" aria-label="أبطأ">−</button>
+      <button type="button" id="btn-toggle" aria-label="تشغيل">▶</button>
+      <button type="button" id="btn-faster" aria-label="أسرع">+</button>
+      <button type="button" id="btn-smaller" aria-label="تصغير الخط">A−</button>
+      <button type="button" id="btn-bigger" aria-label="تكبير الخط">A+</button>
+      <button type="button" id="btn-restart" aria-label="من البداية">⟲</button>
+    </footer>
+    <div id="hud" class="hud" aria-live="polite"></div>
+  </section>
+
+</div>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+[
+  {
+    "id": "demo-ar",
+    "title": "تجربة — مكان ستوديوز",
+    "body": "أهلاً وسهلاً بيكم في ستوديوهات مكان.\n\nهذا نص تجريبي حتى تشوف شلون يشتغل التيليبرومبتر على نظارة Meta Ray-Ban Display.\n\nاستخدم زر زائد وناقص حتى تسرّع أو تبطّئ، و A+ و A− حتى تكبّر أو تصغّر الخط.\n\nاضغط على زر التشغيل حتى يتوقف، واضغطه مرة ثانية حتى يكمل.\n\nشكراً لمتابعتكم."
+  },
+  {
+    "id": "demo-en",
+    "title": "Demo — Makan Studios",
+    "body": "Welcome to Makan Studios.\n\nThis is a demo script for the teleprompter on Meta Ray-Ban Display glasses.\n\nUse plus and minus to change the speed, and A+ / A− to change the text size.\n\nPress play to pause, and press it again to continue.\n\nThanks for watching."
+  }
+]

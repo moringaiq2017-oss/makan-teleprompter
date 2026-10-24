@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>تثبيت Makan Prompter</title>
+<style>
+  body { margin: 0; background: #fff; color: #111; font-family: system-ui, Tahoma, sans-serif; display: grid; place-items: center; min-block-size: 100vh; padding: 16px; box-sizing: border-box; text-align: center; }
+  #qr svg { inline-size: min(80vw, 360px); block-size: auto; }
+  code { direction: ltr; display: inline-block; font-size: 12px; word-break: break-all; color: #555; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Makan Prompter</h1>
+  <p>البس نظارة Meta Ray-Ban Display وباوع على الكود، ووافق على شاشة الإضافة.</p>
+  <div id="qr"></div>
+  <p><code id="link"></code></p>
+</main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+<script>
+  const appUrl = new URL('./', location.href).href;
+  const link = 'fb-viewapp://web_app_deep_link?appName=' + encodeURIComponent('Makan Prompter') +
+               '&appUrl=' + encodeURIComponent(appUrl);
+  const qr = qrcode(0, 'M');
+  qr.addData(link);
+  qr.make();
+  document.getElementById('qr').innerHTML = qr.createSvgTag({ cellSize: 8, margin: 2, scalable: true });
+  document.getElementById('link').textContent = link;
+</script>
+</body>
+</html>

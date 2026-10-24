@@ -1,0 +1,101 @@
+/* Meta Ray-Ban Display: additive display, black = transparent. 600x600 target, sized from viewport. */
+* { box-sizing: border-box; }
+
+html, body, #app { inline-size: 100%; block-size: 100%; }
+
+body {
+  margin: 0;
+  min-inline-size: 0;
+  background: #000;
+  color: #fff;
+  font-family: system-ui, -apple-system, "Segoe UI", Tahoma, sans-serif;
+  font-size: 18px;
+}
+
+.app-shell { inline-size: 100%; block-size: 100%; overflow: hidden; }
+
+.screen {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  inline-size: 100%;
+  block-size: 100%;
+  padding: 4% 5%;
+  gap: 3%;
+}
+.screen[hidden] { display: none; }
+#screen-play { grid-template-rows: minmax(0, 1fr) auto; }
+
+.content { min-inline-size: 0; min-block-size: 0; }
+.scroll { overflow-y: auto; }
+
+.bar { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+h1 { margin: 0; font-size: 1.1em; font-weight: 600; color: #9fd3ff; }
+
+button, .item {
+  font: inherit;
+  color: #fff;
+  background: #1c1c1c;
+  border: 2px solid #3a3a3a;
+  border-radius: 12px;
+  padding: 0.45em 0.9em;
+  min-inline-size: 2.6em;
+}
+.item {
+  display: block;
+  inline-size: 100%;
+  text-align: start;
+  margin-block-end: 8px;
+}
+.item small { display: block; color: #aaa; font-size: 0.75em; margin-block-start: 2px; }
+
+:where(button, a, input, textarea, .item):focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 3px;
+  border-color: #9fd3ff;
+}
+
+.form { display: flex; flex-direction: column; gap: 6px; }
+.form label { color: #aaa; font-size: 0.8em; }
+.form input, .form textarea {
+  font: inherit;
+  color: #fff;
+  background: #111;
+  border: 2px solid #3a3a3a;
+  border-radius: 10px;
+  padding: 0.4em 0.6em;
+}
+.form textarea { flex: 1; min-block-size: 0; resize: none; }
+
+/* Prompter */
+.prompter {
+  overflow: hidden;
+  position: relative;
+  /* fade top & bottom so the reading line stands out */
+  mask-image: linear-gradient(transparent 0, #000 18%, #000 82%, transparent 100%);
+  -webkit-mask-image: linear-gradient(transparent 0, #000 18%, #000 82%, transparent 100%);
+}
+#text {
+  font-size: var(--fs, 30px);
+  line-height: 1.45;
+  font-weight: 600;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  padding-block: 40% 60%;
+  will-change: transform;
+}
+
+.controls button { padding: 0.3em 0.6em; min-inline-size: 2.2em; }
+
+.hud {
+  position: absolute;
+  inset-block-start: 4%;
+  inset-inline: 0;
+  text-align: center;
+  font-size: 0.8em;
+  color: #9fd3ff;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.hud.show { opacity: 1; }
+#screen-play { position: relative; }
